@@ -1,0 +1,135 @@
+---
+import Signature from "./Signature.astro";
+---
+
+<section>
+  <img src="milky_way.webp" draggable="false" class="background" fetchpriority="high">
+  <img src="mountain.webp" draggable="false" class="midground" fetchpriority="high">
+  <Signature />
+  <h1 class="title black-shadow">Welcome to the parallax <br/> Milky Way! 🚀</h1>
+  <img src="pines.webp" draggable="false" class="foreground black-shadow" fetchpriority="high">
+</section>
+
+<script>
+   const images = [
+    'milky_way.webp',
+    'mountain.webp',
+    'pines.webp'
+  ];
+
+  let loaded = 0;
+
+  images.forEach(src => {
+    const img = new Image();
+    img.src = src;
+    img.onload = img.onerror = () => {
+      loaded++;
+      if (loaded === images.length) {
+        document.body.classList.remove('loading');
+      }
+    };
+  });
+</script>
+
+<style scoped>
+  section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    transform-style: preserve-3d;
+    z-index: -1;
+    padding: .5rem;
+    img {
+      user-select: none;
+    }
+  }
+
+  .background,
+  .midground,
+  .foreground {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  .background {
+    animation: spaceAnimation 2s ease-in-out 1 forwards;
+    object-position: right;
+  }
+
+  .midground {
+    animation: mountainAnimation 2s ease-in-out 1 forwards;
+  }
+  
+  .foreground {
+    animation: pinesAnimation 2s ease-in-out 1 forwards;
+    mask-image: linear-gradient(to bottom, transparent, black 80%,  transparent);
+  }
+
+  .title {
+    font-size: clamp(3rem, 10vw, 80px);
+    text-align: center;
+    color: #fff;
+    transform: translateY(-25vw) translateZ(-5px) scale(1.5);
+    animation: titleAnimationMobile 2s ease-in-out 1 forwards;
+    
+    @media screen and (min-width: 768px) {
+      animation: titleAnimation 2s ease-in-out 1 forwards;
+      transform: translateY(-12vw) translateZ(-5px) scale(1.5);
+    }
+  }
+
+  .black-shadow {
+    filter: drop-shadow(0 0 .5rem #000);
+  }
+
+  @keyframes spaceAnimation {
+    0% {
+      transform: translateZ(-6.1px) scale(2.2);
+    }
+    100% {
+      transform: translateZ(-9px) scale(2);
+    }
+  }
+
+  @keyframes mountainAnimation {
+    0% {
+      transform: translateZ(-4px) scale(1.4);
+    }
+    100% {
+      transform: translateZ(-6px) scale(1.7);
+    }
+  }
+
+  @keyframes pinesAnimation {
+    0% {
+      transform: translateZ(-3.5px) scale(2);
+    }
+    100% {
+      transform: translateZ(-4px) scale(1.4);
+    }
+  }
+
+  @keyframes titleAnimation {
+    0% {
+      transform: translateY(-12vw) translateZ(-4.1px) scale(2);
+    }
+    100% {
+      transform: translateY(-12vw) translateZ(-5px) scale(1.5);
+    }
+  }
+
+  @keyframes titleAnimationMobile {
+     0% {
+      transform: translateY(-25vw) translateZ(-4.1px) scale(1.5);
+    }
+    100% {
+      transform: translateY(-25vw) translateZ(-5px) scale(1.5);
+    }
+  }
+</style>

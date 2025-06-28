@@ -1,0 +1,64 @@
+---
+import { Image } from "astro:assets"
+
+const {title, subtitle, image} = Astro.props
+---
+<section>
+  <div>
+    <h2>{title}</h2>
+    <h3>{subtitle}</h3>
+    <slot/>
+  </div>
+  <Image src={image} alt={`${title} image`} quality={90}/>
+</section>
+
+<style>
+  section {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2rem;
+    align-items: center;
+    max-width: 1440px;
+    margin: 0 auto;
+    margin-top: 4rem;
+
+    @media screen and (min-width: 1024px) {
+      flex-direction: row;
+      gap: 8rem;
+
+      &:nth-of-type(odd) {
+        flex-direction: row-reverse;
+      }
+
+      &:not(:first-of-type) {
+        margin-top: 8rem;
+      }
+    }
+
+    h2 {
+      color: var(--saturn);
+    }
+
+    h3 {
+      font-style: italic;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 4rem;
+      box-shadow: 0 0 1rem .1em var(--saturn);
+      transition: box-shadow .2s ease-in-out;
+      aspect-ratio: 16/9;
+
+      &:hover {
+        box-shadow: 0 0 0 .2em var(--saturn);
+      }
+
+      @media screen and (min-width: 1024px) {
+        width: 50%;
+      }
+    }
+  }
+</style>
