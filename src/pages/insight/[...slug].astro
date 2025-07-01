@@ -66,8 +66,12 @@ const next = index < allInsights.length - 1 ? allInsights[index + 1] : null;
   }
 
   h1 {
-    margin-top: 4rem;
+    margin-top: 2.5rem;
     color: var(--saturn);
+    
+    @media screen and (min-width: 768px) {
+      margin-top: 4rem;
+    }
   }
 
   h3 {
