@@ -4,7 +4,9 @@ import {ArrowLeft, ArrowRight} from "@lucide/astro";
 import RootLayout from "../../layouts/RootLayout.astro";
 
 export async function getStaticPaths() {
-  const insights = await getCollection("insights");
+  const insights = (await getCollection("insights")).sort(
+    (a, b) => new Date(a.data.pubDate).getTime() - new Date(b.data.pubDate).getTime()
+  );
 
   return insights.map((insight) => ({
     params: { slug: insight.slug },
