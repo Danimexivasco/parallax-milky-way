@@ -1,0 +1,50 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import "../styles/global.css";
+
+const {title, withHero} = Astro.props;
+---
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Oxanium", sans-serif;
+    background-color: var(--black);
+    color: white;
+  }
+
+  body.loading {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  body.loaded {
+    opacity: 1;
+    pointer-events: auto;
+  }
+</style>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {withHero ? 
+      <link rel="preload" href="/milky_way.webp" as="image" />
+      <link rel="preload" href="/mountain.webp" as="image" />
+      <link rel="preload" href="/pines.webp" as="image" />
+      : 
+      null
+    }
+		<meta name="viewport" content="width=device-width" />
+		<title>{title}</title>
+    <ClientRouter />
+	</head>
+	<body class={withHero ? "loading" : ""}>
+    <slot />
+  </body>
+</html>

@@ -1,22 +1,12 @@
 ---
-import { Image } from "astro:assets"
-
-const {title, subtitle, image} = Astro.props
+const {title, subtitle, slug, image} = Astro.props
 ---
-<section>
-  <div>
-    <h2>{title}</h2>
-    <h3>{subtitle}</h3>
-    <slot/>
-  </div>
-  <Image src={image} alt={`${title} image`} quality={90}/>
-</section>
 
 <style>
   section {
     display: flex;
     flex-direction: column-reverse;
-    gap: 2rem;
+    gap: .5rem;
     align-items: center;
     max-width: 1440px;
     margin: 0 auto;
@@ -35,7 +25,7 @@ const {title, subtitle, image} = Astro.props
       }
     }
 
-    h2 {
+    h2, a {
       color: var(--saturn);
     }
 
@@ -62,3 +52,14 @@ const {title, subtitle, image} = Astro.props
     }
   }
 </style>
+
+<section>
+  <div>
+    <a href={`/insight/${slug}`}>
+      <h2>{title}</h2>
+    </a>
+    <h3>{subtitle}</h3>
+    <slot/>
+  </div>
+  <img src={image.url} alt={image.alt}>
+</section>

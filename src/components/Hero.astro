@@ -2,35 +2,6 @@
 import Signature from "./Signature.astro";
 ---
 
-<section>
-  <img src="milky_way.webp" draggable="false" class="background" fetchpriority="high">
-  <img src="mountain.webp" draggable="false" class="midground" fetchpriority="high">
-  <Signature />
-  <h1 class="title black-shadow">Welcome to the parallax <br/> Milky Way! 🚀</h1>
-  <img src="pines.webp" draggable="false" class="foreground black-shadow" fetchpriority="high">
-</section>
-
-<script>
-   const images = [
-    'milky_way.webp',
-    'mountain.webp',
-    'pines.webp'
-  ];
-
-  let loaded = 0;
-
-  images.forEach(src => {
-    const img = new Image();
-    img.src = src;
-    img.onload = img.onerror = () => {
-      loaded++;
-      if (loaded === images.length) {
-        document.body.classList.remove('loading');
-      }
-    };
-  });
-</script>
-
 <style scoped>
   section {
     position: relative;
@@ -133,3 +104,50 @@ import Signature from "./Signature.astro";
     }
   }
 </style>
+
+<section>
+  <img src="/milky_way.webp" draggable="false" class="background" fetchpriority="high">
+  <img src="/mountain.webp" draggable="false" class="midground" fetchpriority="high">
+  <Signature />
+  <h1 class="title black-shadow">Welcome to the parallax <br/> Milky Way! 🚀</h1>
+  <img src="/pines.webp" draggable="false" class="foreground black-shadow" fetchpriority="high">
+</section>
+
+<script is:inline>
+  async function waitForHeroImagesToLoad() {
+    const heroImages = Array.from(document.querySelectorAll('img[fetchpriority="high"]'));
+    if (!heroImages.length) return;
+
+    document.body.classList.add('loading');
+    document.body.classList.remove('loaded');
+
+    await Promise.all(
+      heroImages.map(img => {
+        if (img.complete) {
+          return img.decode().catch(() => {});
+        } else {
+          return new Promise(resolve => {
+            img.onload = () => img.decode().catch(() => {}).finally(resolve);
+            img.onerror = resolve;
+          });
+        }
+      })
+    );
+
+    sessionStorage.setItem('imagesLoaded', 'true');
+    document.body.classList.remove('loading');
+    document.body.classList.add('loaded');
+  }
+
+  if (!sessionStorage.getItem('imagesLoaded')) {
+    waitForHeroImagesToLoad();
+  } else {
+    document.body.classList.remove('loading');
+    document.body.classList.add('loaded');
+  }
+
+  document.addEventListener('astro:after-swap', () => {
+    waitForHeroImagesToLoad();
+  });
+</script>
+

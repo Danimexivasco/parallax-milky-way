@@ -1,0 +1,24 @@
+---
+const {text, ...rest} = Astro.props;
+---
+
+<style>
+  button {
+    background-color: var(--saturn);
+    padding: 1rem 1.5rem;
+    margin: 0 auto;
+    border: none;
+    color: var(--black);
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: fit-content;
+    border-radius: 4rem;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+      box-shadow: 0 0 .5rem .1em var(--saturn);
+    }
+  }
+</style>
+
+<button {...rest}>{text}</button>
