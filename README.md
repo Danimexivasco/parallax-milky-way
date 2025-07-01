@@ -1,47 +1,40 @@
-# Astro Starter Kit: Minimal
+# Parallax Milky Way Interactive Experience (+ View Transitions)
 
-```sh
-bun create astro@latest -- --template minimal
-```
+An interactive web experience featuring smooth view transitions and parallax effects, talking about the Milky Way.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+## 🌟 Features
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- **Smooth View Transitions**: Seamless transitions between different sections of the page. It's also uses view transitions inside the insights replacing image.
+- **Parallax Effects**: Dynamic background movement that creates depth and immersion
+- **Responsive Design**: Works perfectly on all device sizes
+- **Performance Optimized**: Efficient animations and transitions for smooth user experience
 
-## 🚀 Project Structure
+## 🚀 Technologies Used
 
-Inside of your Astro project, you'll see the following folders and files:
+- Astro
+- View Transitions
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🛠️ Setup
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+1. Install dependencies:
+   ```bash
+   bun i
+   ```
 
-Any static assets, like images, can be placed in the `public/` directory.
+2. Start development server:
+   ```bash
+   bun dev
+   ```
 
-## 🧞 Commands
+3. Build for production:
+   ```bash
+   bun run build
+   ```
 
-All commands are run from the root of the project, from a terminal:
+## 🎯 Usage
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
+- Navigate through the site using smooth scroll transitions
+- Interact with the parallax background as you scroll
+- Experience responsive animations that adapt to your viewport size
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
