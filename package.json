@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fontsource-variable/oxanium": "^5.2.6",
+    "@lucide/astro": "^0.525.0",
     "astro": "^5.10.1"
   },
   "devDependencies": {

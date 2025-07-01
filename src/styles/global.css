@@ -1,3 +1,12 @@
 :root {
   --saturn: #ccb18a;
+  --saturn50: #ccb18a50;
+  --saturn80: #ccb18a80;
+  --shadow: 0px 8px 4px hsla(0, 0%, 0%, .08), 0px 5px 2px hsla(0, 0%, 0%, .08), 0px 3px 2px hsla(0, 0%, 0%, .12), 0px 1px 1px hsla(0, 0%, 0%, .15);
+  --black: #212129;
+}
+
+* {
+  scrollbar-color: var(--saturn) var(--black);
+  scrollbar-width: thin;
 }

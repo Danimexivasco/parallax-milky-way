@@ -5,6 +5,7 @@
       "name": "parallax-hero",
       "dependencies": {
         "@fontsource-variable/oxanium": "^5.2.6",
+        "@lucide/astro": "^0.525.0",
         "astro": "^5.10.1",
       },
       "devDependencies": {
@@ -156,6 +157,8 @@
     "@img/sharp-win32-x64": ["@img/sharp-win32-x64@0.33.5", "", { "os": "win32", "cpu": "x64" }, "sha512-MpY/o8/8kj+EcnxwvrP4aTJSWw/aZ7JIGR4aBeZkZw5B7/Jn+tY9/VNwtcoGmdT7GfggGIU4kygOMSbYnOrAbg=="],
 
     "@jridgewell/sourcemap-codec": ["@jridgewell/sourcemap-codec@1.5.0", "", {}, "sha512-gv3ZRaISU3fjPAgNsriBRqGWQL6quFx04YMPW/zD8XMLsU32mhCCbfbO6KZFLjvYpCZ8zyDEgqsgf+PwPaM7GQ=="],
+
+    "@lucide/astro": ["@lucide/astro@0.525.0", "", { "peerDependencies": { "astro": "^4 || ^5" } }, "sha512-CjX9aJlmHg5/Io6mRSrSi3TbwRXtrV/6kwsRjv6eVhBymAA8ogq3j8YrV1PsXn1EHK9HFyzeJOhaXGm00acVLg=="],
 
     "@nodelib/fs.scandir": ["@nodelib/fs.scandir@2.1.5", "", { "dependencies": { "@nodelib/fs.stat": "2.0.5", "run-parallel": "^1.1.9" } }, "sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g=="],
 
