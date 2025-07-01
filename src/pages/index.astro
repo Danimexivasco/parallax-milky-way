@@ -6,7 +6,9 @@ import Hero from '../components/Hero.astro';
 import Insight from '../components/Insight.astro';
 import Button from '../components/Button.astro';
 
-const insights = await getCollection("insights");
+const insights = (await getCollection("insights")).sort(
+  (a, b) => new Date(a.data.pubDate).getTime() - new Date(b.data.pubDate).getTime()
+);
 
 /**
  * Todos:

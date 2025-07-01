@@ -1,7 +1,7 @@
 ---
 title: "See it yourself"
 subtitle: "Stargazing the Milky Way"
-pubDate: 2025-06-29
+pubDate: 2025-06-30
 description: "One of the best things to do is stargazing"
 author: "Danimexivasco"
 image:

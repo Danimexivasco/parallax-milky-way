@@ -1,7 +1,7 @@
 ---
 title: "What is the Milky Way?"
 subtitle: "Our Galactic Home"
-pubDate: 2025-06-29
+pubDate: 2025-06-27
 description: "Information about our milky way"
 author: "Danimexivasco"
 image:

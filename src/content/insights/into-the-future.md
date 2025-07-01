@@ -1,7 +1,7 @@
 ---
 title: "Into the future"
 subtitle: "Where do we go from here?"
-pubDate: 2025-06-29
+pubDate: 2025-07-01
 description: "Where do we go from here?"
 author: "Danimexivasco"
 image:

@@ -1,7 +1,7 @@
 ---
 title: "Stars and Systems"
 subtitle: "Billions of Suns"
-pubDate: 2025-06-29
+pubDate: 2025-06-28
 description: "Information about our stars and systems"
 author: "Danimexivasco"
 image:
